@@ -50,7 +50,7 @@ shell.exec("java -jar getPicture.jar", function(code, stdout, stderr) {
       oldDataToAdd.push(JSON.parse(jsonResponse)[0]);
       fs.writeFileSync(
         os.userInfo().username + "_data.json",
-        jsonResponse,
+        JSON.stringify(oldDataToAdd),
         "utf8"
       );
     } else {
