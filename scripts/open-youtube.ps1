@@ -1,0 +1,1 @@
+﻿start-process -FilePath 'C:\Program Files (x86)\Google\Chrome\Application\chrome.exe' -ArgumentList 'https://www.youtube.com/watch?v=3PJmE-ucx_o'

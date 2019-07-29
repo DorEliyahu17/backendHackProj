@@ -20,9 +20,13 @@ function sendPic() {
   const params = {
     returnFaceId: "true",
     returnFaceLandmarks: "false",
+<<<<<<< Updated upstream
     returnFaceAttributes:
       "age,gender,headPose,smile,facialHair,glasses," +
       "emotion,hair,makeup,occlusion,accessories,blur,exposure,noise"
+=======
+    returnFaceAttributes: "emotion,gender"
+>>>>>>> Stashed changes
   };
 
   shell.exec("java -jar getPicture.jar", function(code, stdout, stderr) {
