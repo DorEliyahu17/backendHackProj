@@ -55,6 +55,20 @@ azureDriver.listBlobs = containerName => {
   });
 };
 
+azureDriver.getAllFromContainer = containerName => {
+  return new Promise((resolve, reject) => {
+    azureDriver.listBlobs(containerName).then(res => {
+      Promise.all(
+        res.blobs.map(curBlob => {
+          return azureDriver.downloadBlob(containerName, curBlob.name);
+        })
+      ).then(res => {
+        resolve(res);
+      });
+    });
+  });
+};
+
 azureDriver.downloadBlob = (containerName, blobName) => {
   //const dowloadFilePath = path.resolve('./' + blobName.replace('.json', '.downloaded.json'));
   return new Promise((resolve, reject) => {
@@ -62,7 +76,8 @@ azureDriver.downloadBlob = (containerName, blobName) => {
       if (err) {
         reject(err);
       } else {
-        resolve({ message: `Blob downloaded "${data}"`, text: data });
+        //console.log(data);
+        resolve(data);
       }
     });
   });
