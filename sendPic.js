@@ -40,26 +40,28 @@ function sendPic() {
         return;
       }
       let jsonResponse = JSON.stringify(JSON.parse(body), null, "  ");
-      if (fs.existsSync(os.userInfo().username + "_data.json")) {
-        //append to the json
-        let oldDataToAdd = fs.readFileSync(
-          os.userInfo().username + "_data.json",
-          "utf8"
-        );
-        oldDataToAdd = JSON.parse(oldDataToAdd);
-        oldDataToAdd.push(JSON.parse(jsonResponse)[0]);
-        fs.writeFileSync(
-          os.userInfo().username + "_data.json",
-          JSON.stringify(oldDataToAdd),
-          "utf8"
-        );
-      } else {
-        //no such file
-        fs.writeFileSync(
-          os.userInfo().username + "_data.json",
-          jsonResponse,
-          "utf8"
-        );
+      if (jsonResponse !== "[]") {
+        if (fs.existsSync(os.userInfo().username + "_data.json")) {
+          //append to the json
+          let oldDataToAdd = fs.readFileSync(
+            os.userInfo().username + "_data.json",
+            "utf8"
+          );
+          oldDataToAdd = JSON.parse(oldDataToAdd);
+          oldDataToAdd.push(JSON.parse(jsonResponse)[0]);
+          fs.writeFileSync(
+            os.userInfo().username + "_data.json",
+            JSON.stringify(oldDataToAdd),
+            "utf8"
+          );
+        } else {
+          //no such file
+          fs.writeFileSync(
+            os.userInfo().username + "_data.json",
+            jsonResponse,
+            "utf8"
+          );
+        }
       }
     });
   });
