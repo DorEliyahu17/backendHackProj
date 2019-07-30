@@ -64,7 +64,7 @@ function resposeToEmotion(dominentEmotion) {
       break;
     case "happiness":
       shell.exec(
-        "powershell trigger-popup-with-picture-and-sound.ps1 -sound 'zarihappy.wav' -text 'Happy'",
+        "powershell scripts/trigger-popup-with-picture-and-sound.ps1 -sound 'scripts/zarihappy.wav' -text 'Happy'",
         function(code, stdout, stderr) {}
       );
       break;
@@ -77,7 +77,7 @@ function resposeToEmotion(dominentEmotion) {
       break;
     case "sadness":
       shell.exec(
-        "powershell trigger-popup-with-picture-and-sound.ps1 -sound 'zarisad.wav' -text 'Sad'",
+        "powershell scripts/trigger-popup-with-picture-and-sound.ps1 -sound 'scripts/zarisad.wav' -text 'Sad'",
         function(code, stdout, stderr) {}
       );
       break;

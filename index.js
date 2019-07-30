@@ -7,13 +7,15 @@ cron.schedule("0 * * * * *", () => {
   sendPic();
 });
 cron.schedule("15 * * * * *", () => {
-  sendPic();
+  //sendPic();
+  analytics();
 });
 cron.schedule("30 * * * * *", () => {
   sendPic();
 });
 cron.schedule("45 * * * * *", () => {
-  sendPic();
+  //sendPic();
+  analytics();
 });
 
 // cron.schedule("0 * * * * *", () => {
@@ -35,7 +37,7 @@ cron.schedule("45 * * * * *", () => {
 //   console.log("kaka");
 //   actionRun();
 // });
-cron.schedule("*/2 * * * *", () => {
-  console.log("Doing Analytics");
-  analytics();
-});
+// cron.schedule("*/1 * * * *", () => {
+//   console.log("Doing Analytics");
+//   analytics();
+// });
